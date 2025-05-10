@@ -2,7 +2,7 @@ import pandas as pd
 import sqlite3
 
 def main():
-    conn = sqlite3.connect('data/dados_covid.db')
+    conn = sqlite3.connect('/opt/airflow/data/dados_covid.db')
 
     query = """
     SELECT state, MAX(total_cases) as casos_max

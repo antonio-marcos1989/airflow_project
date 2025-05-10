@@ -2,9 +2,9 @@ import pandas as pd
 import sqlite3
 
 def main():
-    df = pd.read_csv('data/dados_transformados.csv')
+    df = pd.read_csv('/opt/airflow/data/dados_transformados.csv')
 
-    conn = sqlite3.connect('data/dados_covid.db')
+    conn = sqlite3.connect('/opt/airflow/data/dados_covid.db')
     df.to_sql('covid_data', conn, if_exists='replace', index=False)
     conn.close()
 

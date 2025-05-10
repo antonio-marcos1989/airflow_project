@@ -12,22 +12,22 @@ with DAG(
 
     ingestao = BashOperator(
         task_id='ingestao',
-        bash_command='python3 /Users/antoniomarcos/PycharmProjects/airflow_project/scripts/01_ingestao.py',
+        bash_command='python3 /opt/airflow/scripts/01_ingestao.py',
     )
 
     transformacao = BashOperator(
         task_id='transformacao',
-        bash_command='python3 /Users/antoniomarcos/PycharmProjects/airflow_project/scripts/02_transformacao.py',
+        bash_command='python3 /opt/airflow/scripts/02_transformacao.py',
     )
 
     carga = BashOperator(
         task_id='carga',
-        bash_command='python3 /Users/antoniomarcos/PycharmProjects/airflow_project/scripts/03_carga.py',
+        bash_command='python3 /opt/airflow/scripts/03_carga.py',
     )
 
     consumo = BashOperator(
         task_id='consumo',
-        bash_command='python3 /Users/antoniomarcos/PycharmProjects/airflow_project/scripts/04_consumo.py',
+        bash_command='python3 /opt/airflow/scripts/04_consumo.py',
     )
 
     ingestao >> transformacao >> carga >> consumo
